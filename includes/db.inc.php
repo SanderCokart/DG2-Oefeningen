@@ -1,20 +1,15 @@
-<!-- SANDER -->
 <?php
-function checkConn(){
-    if ($conn->connect_error) {
-        printf("Connect failed: %s\n", $mysqli->connect_error);
-        exit();
-    }
+//Login information
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$dbname = "wedstrijd_oefening";
+
+//Create connection object
+$conn = new mysqli($hostname, $username, $password, $dbname);
+
+//If there's an error, stop
+if ($conn->connect_error) {
+  die ('Connection failed'.$conn->connect_error);
 }
-
-    $servername = "localhost";
-    $databasename = "wedstrijd_oefening";
-    $username = "root";
-    $password = "";
-
-    $conn = mysqli_connect($servername, $username, $password, $databasename);
 ?>
-<!-- SANDER -->
-<!-- LARS -->
-
-<!-- LARS -->
