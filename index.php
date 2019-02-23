@@ -10,15 +10,31 @@
 <body>
     <?php include_once "includes/db.inc.php" ?>
     <!-- INPUT FIELDS -->
-    <button type="button" id="editT1">EDIT</button>
-    <input type="number" placeholder="ID" id="editIDT1">
-    <button type="button" id="removeT1">REMOVE</button>
-    <input type="number" placeholder="ID"  id="removeIDT1">
-    <button type="button" id="insertT1">INSERT</button>
-    <button type="button" id="editT2">EDIT</button>
-    <input type="number" placeholder="ID" id="editIDT2"></input>
-    <button type="button" id="insertT2">INSERT</button>
+
+    <form id="formEdit" action="index.html" method="post">
+        <input type="submit" id="editT1" value="EDIT"></input>
+        <input type="number" placeholder="ID" id="editIDT1">
+    </form>
+
+    <form id="formRemove" action="index.html" method="post">
+        <input type="submit" id="removeT1" value="REMOVE"></input>
+        <input type="number" placeholder="ID"  id="removeIDT1">
+    </form>
+
+    <form action="insertClub.php" method="post">
+        <input type="submit" id="insertT1" value="INSERT"></input>
+    </form>
+
+    <form action="">
+        <input type="submit" id="editT2" value="EDIT"></input>
+        <input type="number" placeholder="ID" id="editIDT2"></input>
+    </form>
+
+    <form action="">
+        <input type="submit" id="insertT2" value="INSERT"></input>
+    </form>
     <!-- INPUT FIELDS -->
+
     <!-- CLUBS -->
     <div id="T1">
         <h1>CLUBS</h1>
