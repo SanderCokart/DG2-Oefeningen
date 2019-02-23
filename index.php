@@ -21,12 +21,27 @@
     <!-- INPUT FIELDS -->
     <!-- CLUBS -->
     <div id="T1">
+        <h1>CLUBS</h1>
         <?php
             echo "<table width=\"100%\">";
             echo "<tr>
             <th>ID</th>
             <th>Club Name</th>
             </tr>";
+
+            $sqlget = "SELECT * FROM clubs ORDER BY id;";
+            $result = $conn->query($sqlget);
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>";
+                echo $row['id'];
+                echo "</td>";
+                echo "<td>";
+                echo $row['club_name'];
+                echo "</td>";
+                echo "</tr>";
+            }
 
             echo "</table>";
          ?>
@@ -35,12 +50,36 @@
 
     <!-- GAMES -->
     <div id="T2">
+        <h1>GAMES</h1>
         <?php
         echo "<table width=\"100%\">";
         echo "<tr>
         <th>ID</th>
-        <th>Club Name</th>
+        <th>club1</th>
+        <th>eindscore</th>
+        <th>club2</th>
         </tr>";
+
+        $sqlget = "SELECT * FROM wedstrijden ORDER BY id;";
+        $result = $conn->query($sqlget);
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>";
+            echo $row['id'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['clubnaam_1'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['eindscore_club_1'] . ' - ' . $row['eindscore_club_2'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['clubnaam_2'];
+            echo "</td>";
+        }
+
+
 
         echo "</table>";
         ?>
