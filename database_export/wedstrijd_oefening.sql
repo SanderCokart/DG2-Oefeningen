@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 23 feb 2019 om 20:55
+-- Gegenereerd op: 23 feb 2019 om 21:42
 -- Serverversie: 10.1.35-MariaDB
 -- PHP-versie: 7.2.9
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `wedstrijd_oefening`
 --
+CREATE DATABASE IF NOT EXISTS `wedstrijd_oefening` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `wedstrijd_oefening`;
 
 -- --------------------------------------------------------
 
@@ -42,9 +44,9 @@ CREATE TABLE `clubs` (
 CREATE TABLE `wedstrijden` (
   `id` int(11) NOT NULL,
   `clubnaam_1` varchar(25) NOT NULL,
-  `eindscore_1` int(2) NOT NULL,
+  `eindscore_club_1` int(2) NOT NULL,
   `clubnaam_2` varchar(25) NOT NULL,
-  `eindscore_2` int(2) NOT NULL
+  `eindscore_club_2` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
