@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <?php include_once "includes/db.inc.php" ?>
     <!-- INPUT FIELDS -->
     <button type="button" id="editT1">EDIT</button>
     <input type="number" placeholder="ID" id="editIDT1">
