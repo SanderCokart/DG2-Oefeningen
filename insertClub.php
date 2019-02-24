@@ -1,19 +1,17 @@
 <?php
 include_once "includes/db.inc.php";
 
-if (isset($_POST['clubName'])) {
+if (isset($_POST['clubName'])) { // process form
   $clubName = $_POST['clubName'];
-  echo $clubName;
   $conn->query("INSERT INTO clubs (club_name) VALUES ('$clubName')"); // Query to add the club
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Insert a club</title>
     </head>
     <body>
       <div id="insert">
