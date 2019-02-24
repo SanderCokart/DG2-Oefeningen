@@ -30,7 +30,7 @@
         <input type="number" placeholder="ID" id="editIDT2"></input>
     </form>
 
-    <form action="">
+    <form action="insertGame.php">
         <input type="submit" id="insertT2" value="INSERT"></input>
     </form>
     <!-- INPUT FIELDS -->
