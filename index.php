@@ -11,12 +11,12 @@
     <?php include_once "includes/db.inc.php" ?>
     <!-- INPUT FIELDS -->
 
-    <form id="formEdit" action="index.html" method="post">
+    <form id="formEdit" action="editClub.php" method="post">
         <input type="submit" id="editT1" value="EDIT"></input>
         <input type="number" placeholder="ID" id="editIDT1">
     </form>
 
-    <form id="formRemove" action="index.html" method="post">
+    <form id="formRemove" action="removeClub.php" method="post">
         <input type="submit" id="removeT1" value="REMOVE"></input>
         <input type="number" placeholder="ID"  id="removeIDT1">
     </form>
@@ -25,12 +25,12 @@
         <input type="submit" id="insertT1" value="INSERT"></input>
     </form>
 
-    <form action="">
+    <form action="editMatch.php">
         <input type="submit" id="editT2" value="EDIT"></input>
         <input type="number" placeholder="ID" id="editIDT2"></input>
     </form>
 
-    <form action="">
+    <form action="insertMatch.php">
         <input type="submit" id="insertT2" value="INSERT"></input>
     </form>
     <!-- INPUT FIELDS -->
