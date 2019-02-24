@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="index.css">
-    <title>Tabel</title>
+    <title>Tables</title>
 </head>
 
 <body>
