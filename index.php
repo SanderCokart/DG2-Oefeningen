@@ -13,7 +13,7 @@
 
     <form id="formEdit" action="editClub.php" method="post">
         <input type="submit" id="editT1" value="EDIT"></input>
-        <input type="number" placeholder="ID" id="editIDT1">
+        <input type="number" placeholder="ID" id="editIDT1" name="editClubId">
     </form>
 
     <form id="formRemove" action="removeClub.php" method="post">
