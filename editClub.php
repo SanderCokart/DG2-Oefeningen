@@ -26,7 +26,7 @@
   if(isset($_POST['newClubName'])) { // get the new name and give the query to the database
     $newClubName = $_POST['newClubName'];
     $conn->query("UPDATE clubs SET club_name='$newClubName' WHERE id=".$_SESSION['editClubId']);
-    // unset($_SESSION['editClubId']);
+
     session_destroy();
     header('Location: index.php');
   }
