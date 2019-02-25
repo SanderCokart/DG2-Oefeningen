@@ -1,9 +1,10 @@
 <?php
 include_once "includes/db.inc.php";
 
-if (isset($_POST['clubName'])) { // process form
+if (isset($_POST['clubName'])) { // process form, give query and redirect to index.php
   $clubName = $_POST['clubName'];
-  $conn->query("INSERT INTO clubs (club_name) VALUES ('$clubName')"); // Query to add the club
+  $conn->query("INSERT INTO clubs (club_name) VALUES ('$clubName')"); // query to add the club
+  header('Location: index.php');
 }
 ?>
 
