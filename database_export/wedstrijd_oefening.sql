@@ -3,8 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 23 feb 2019 om 21:42
--- Gegenereerd op: 23 feb 2019 om 21:38
+-- Gegenereerd op: 26 feb 2019 om 10:24
 -- Serverversie: 10.1.35-MariaDB
 -- PHP-versie: 7.2.9
 
@@ -22,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `wedstrijd_oefening`
 --
-CREATE DATABASE IF NOT EXISTS `wedstrijd_oefening` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `wedstrijd_oefening`;
 
 -- --------------------------------------------------------
 
@@ -33,21 +30,30 @@ USE `wedstrijd_oefening`;
 
 CREATE TABLE `clubs` (
   `id` int(11) NOT NULL,
-  `club_name` varchar(25) NOT NULL
+  `club_name` varchar(25) NOT NULL,
+  `removed` tinyint(1) NOT NULL,
+  `reason` tinytext,
+  `solution` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `clubs`
+--
+
+INSERT INTO `clubs` (`id`, `club_name`, `removed`, `reason`, `solution`) VALUES
+(9, 'Feyenoord', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `wedstrijden`
+-- Tabelstructuur voor tabel `games`
 --
 
-CREATE TABLE `wedstrijden` (
+CREATE TABLE `games` (
   `id` int(11) NOT NULL,
-  `clubnaam_1` varchar(25) NOT NULL,
-  `eindscore_club_1` int(2) NOT NULL,
-  `clubnaam_2` varchar(25) NOT NULL,
-  `eindscore_club_2` int(2) NOT NULL
+  `club_1_name` varchar(25) NOT NULL,
+  `score` varchar(3) NOT NULL,
+  `club_2_name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -62,9 +68,9 @@ ALTER TABLE `clubs`
   ADD UNIQUE KEY `club_name` (`club_name`);
 
 --
--- Indexen voor tabel `wedstrijden`
+-- Indexen voor tabel `games`
 --
-ALTER TABLE `wedstrijden`
+ALTER TABLE `games`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -75,12 +81,12 @@ ALTER TABLE `wedstrijden`
 -- AUTO_INCREMENT voor een tabel `clubs`
 --
 ALTER TABLE `clubs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT voor een tabel `wedstrijden`
+-- AUTO_INCREMENT voor een tabel `games`
 --
-ALTER TABLE `wedstrijden`
+ALTER TABLE `games`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
