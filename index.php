@@ -30,7 +30,7 @@
         <input type="number" name="editGameID" placeholder="ID" id="editIDT2"></input>
     </form>
 
-    <form action="insertMatch.php">
+    <form action="insertGame.php">
         <input type="submit" id="insertT2" value="INSERT"></input>
     </form>
     <!-- INPUT FIELDS -->
@@ -45,8 +45,7 @@
             <th>Club Name</th>
             </tr>";
 
-            $sqlget = "SELECT * FROM clubs ORDER BY id;";
-            $result = $conn->query($sqlget);
+            $result = $conn->query("SELECT * FROM clubs ORDER BY id;");
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
@@ -76,8 +75,7 @@
         <th>club2</th>
         </tr>";
 
-        $sqlget = "SELECT * FROM wedstrijden ORDER BY id;";
-        $result = $conn->query($sqlget);
+        $result = $conn->query("SELECT * FROM wedstrijden ORDER BY id;");
 
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
