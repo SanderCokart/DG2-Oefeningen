@@ -1,11 +1,13 @@
 <?php
 session_start();
 include 'includes/db.inc.php';
-include 'includes/idExist.inc.php';
+include 'includes/tools.inc.php';
 
-idExists('removeClubId'); // check if id exists in the table
+if(!checkExistanceId('removeClubId', 'clubs')) { // check if id exists in the table
+  wrongId();
+}
 
-if ($_SESSION['existingId'] == FALSE) { // if the id doesn't exist, stop
+if (!$_SESSION['existingId']) { // if the id doesn't exist, stop
   die ("You didn't enter an id or the id doesn't exist! Go back!");
 }
 

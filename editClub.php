@@ -1,16 +1,18 @@
 <?php
   session_start();
   include 'includes/db.inc.php';
-  include 'includes/idExist.inc.php';
+  include 'includes/tools.inc.php';
 
-  idExists('editClubId');
+  if(!checkExistanceId('editClubId', 'clubs')) {
+    wrongId();
+  }
 
-  if(isset($_POST['editClubId']) && !empty($_POST['editClubId']) && $_SESSION['existingId'] == TRUE) { // get the inserted id from index.php
+  if(isset($_POST['editClubId']) && !empty($_POST['editClubId']) && $_SESSION['existingId']) { // get the inserted id from index.php
     $_SESSION['editClubId'] = $_POST['editClubId'];
     $result = $conn->query("SELECT club_name FROM clubs WHERE id='$_POST[editClubId]'");
     $row = $result->fetch_assoc();
     $currentClubName = $row['club_name'];
-  } else if (!isset($_SESSION['editClubId']) || $_SESSION['existingId'] == FALSE){ // if the user didn't insert an id
+  } else if (!isset($_SESSION['editClubId']) || !$_SESSION['existingId']){ // if the user didn't insert an id
     die ("You didn't enter an id or the id doesn't exist! Go back!");
     header('Location: index.php');
   }
