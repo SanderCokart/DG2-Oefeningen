@@ -11,6 +11,9 @@ if ($_SESSION['existingId'] == FALSE) { // if the id doesn't exist, stop
 
 if(isset($_POST['removeClubId'])) { // put the id in a session for use after refresh
   $_SESSION['removeClubId'] = $_POST['removeClubId'];
+  $result = $conn->query("SELECT club_name FROM clubs WHERE id='$_SESSION[removeClubId]'");
+  $row = $result->fetch_assoc();
+  $removeClubName = $row['club_name'];
 }
 
 if(isset($_POST['removeClubSubmit'])) { // if the form is submitted, process it
@@ -24,7 +27,11 @@ if(isset($_POST['removeClubSubmit'])) { // if the form is submitted, process it
 ?>
 
 <form action="" method="post">
-  <input type="text" name="removeClubReason" placeholder="Reason for removal"></input>
-  <input type="text" name="removeClubSolution" placeholder="Solution for removal"></input>
-  <input type="submit" name="removeClubSubmit" value="Submit"></input>
+  <fieldset>
+    <legend>Remove club "<?php echo $removeClubName; ?>"</legend>
+    <input type="text" name="removeClubReason" placeholder="Reason for removal"></input>
+    <input type="text" name="removeClubSolution" placeholder="Solution for removal"></input>
+    <input type="submit" name="removeClubSubmit" value="Submit"></input>
+
+  </fieldset>
 </form>
