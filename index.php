@@ -60,7 +60,7 @@
             echo "</table>";
          ?>
     </div>
-    <!-- CLUBS -->
+    <!-- CLUBS  -->
 
     <!-- GAMES -->
     <div id="T2">
