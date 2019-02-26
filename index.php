@@ -31,7 +31,7 @@
     </form>
 
     <form action="insertGame.php">
-        <input type="submit" id="insertT2" value="INSERT"></input>
+        <input type="submit" id="insertT2" value="INSERT" name="insertGameId"></input>
     </form>
     <!-- INPUT FIELDS -->
 
