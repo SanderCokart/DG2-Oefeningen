@@ -20,7 +20,7 @@ if (isset($_POST['clubName'])) { // process form, give query and redirect to ind
       <div id="insert">
         <form action="" method="post">
           <fieldset>
-            <legend> Voer de clubnaam in </legend>
+            <legend>Enter club name</legend>
             <input type="text" name="clubName" placeholder="Insert name">
             <input type="submit">
           </fieldset>

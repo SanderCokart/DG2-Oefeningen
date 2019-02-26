@@ -30,7 +30,7 @@
         <input type="number" name="editGameID" placeholder="ID" id="editIDT2"></input>
     </form>
 
-    <form action="insertMatch.php">
+    <form action="insertGame.php">
         <input type="submit" id="insertT2" value="INSERT"></input>
     </form>
     <!-- INPUT FIELDS -->
@@ -45,8 +45,7 @@
             <th>Club Name</th>
             </tr>";
 
-            $sqlget = "SELECT * FROM clubs ORDER BY id;";
-            $result = $conn->query($sqlget);
+            $result = $conn->query("SELECT * FROM clubs ORDER BY id;");
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
@@ -58,7 +57,6 @@
                 echo "</td>";
                 echo "</tr>";
             }
-
             echo "</table>";
          ?>
     </div>
@@ -71,13 +69,12 @@
         echo "<table width=\"100%\">";
         echo "<tr>
         <th>ID</th>
-        <th>club1</th>
-        <th>eindscore</th>
-        <th>club2</th>
+        <th>Club 1</th>
+        <th>Score</th>
+        <th>Club 2</th>
         </tr>";
 
-        $sqlget = "SELECT * FROM wedstrijden ORDER BY id;";
-        $result = $conn->query($sqlget);
+        $result = $conn->query("SELECT * FROM games ORDER BY id;");
 
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
@@ -85,18 +82,15 @@
             echo $row['id'];
             echo "</td>";
             echo "<td>";
-            echo $row['clubnaam_1'];
+            echo $row['club_1_name'];
             echo "</td>";
             echo "<td>";
-            echo $row['eindscore_club_1'] . ' - ' . $row['eindscore_club_2'];
+            echo $row['score'];
             echo "</td>";
             echo "<td>";
-            echo $row['clubnaam_2'];
+            echo $row['club_2_name'];
             echo "</td>";
         }
-
-
-
         echo "</table>";
         ?>
     </div>
