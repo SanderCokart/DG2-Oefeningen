@@ -15,7 +15,7 @@
     header('Location: index.php');
   }
 
-  if(isset($_POST['newClubName'])) { // get the new name and give the query to the database
+  if(isset($_POST['editClubSubmit']) && isset($_POST['newClubName'])) { // get the new name and give the query to the database
     $newClubName = $_POST['newClubName'];
     $conn->query("UPDATE clubs SET club_name='$newClubName' WHERE id=".$_SESSION['editClubId']);
     session_destroy();
@@ -35,7 +35,7 @@
   <fieldset>
     <legend>Edit club with the name <?php if(isset($currentClubName)) { echo $currentClubName; } ?></legend>
     <input type="text" name="newClubName" value="<?php if(isset($currentClubName)) {echo $currentClubName;} ?>"></input>
-    <input type="submit" name="" value="Submit"></input>
+    <input type="submit" name="editClubSubmit" value="Submit"></input>
   </fieldset>
 </form>
 </body>
