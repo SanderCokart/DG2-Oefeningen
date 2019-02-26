@@ -1,17 +1,9 @@
 <?php
   session_start();
   include 'includes/db.inc.php';
+  include 'includes/idExist.inc.php';
 
-  if (isset($_POST['editClubId'])) { // check if id exists in the clubs table
-    $result = $conn->query("SELECT id FROM clubs"); // get every id from the table
-    $_SESSION['existingId'] = FALSE; // standard value is false
-    while ($row = $result->fetch_assoc()) { // check if id exists in table
-      if ($_POST['editClubId'] == $row['id']) { // the id exists in table
-        $_SESSION['existingId'] = TRUE;
-        break;
-      }
-    }
-  }
+  idExists('editClubId');
 
   if(isset($_POST['editClubId']) && !empty($_POST['editClubId']) && $_SESSION['existingId'] == TRUE) { // get the inserted id from index.php
     $_SESSION['editClubId'] = $_POST['editClubId'];

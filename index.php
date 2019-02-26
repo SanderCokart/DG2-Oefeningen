@@ -18,7 +18,7 @@
 
     <form id="formRemove" action="removeClub.php" method="post">
         <input type="submit" id="removeT1" value="REMOVE"></input>
-        <input type="number" placeholder="ID"  id="removeIDT1">
+        <input type="number" placeholder="ID"  id="removeIDT1" name="removeClubId">
     </form>
 
     <form action="insertClub.php" method="post">
@@ -45,7 +45,7 @@
             <th>Club Name</th>
             </tr>";
 
-            $result = $conn->query("SELECT * FROM clubs ORDER BY id;");
+            $result = $conn->query("SELECT * FROM clubs WHERE removed=0 ORDER BY id;");
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
