@@ -25,12 +25,12 @@
         <input type="submit" id="insertT1" value="INSERT"></input>
     </form>
 
-    <form action="editMatch.php">
+    <form action="editGame.php" method="post">
         <input type="submit" id="editT2" value="EDIT"></input>
-        <input type="number" name="editGameID" placeholder="ID" id="editIDT2"></input>
+        <input type="number" name="editGameId" placeholder="ID" id="editIDT2"></input>
     </form>
 
-    <form action="insertGame.php">
+    <form action="insertGame.php" method="post">
         <input type="submit" id="insertT2" value="INSERT" name="insertGameId"></input>
     </form>
     <!-- INPUT FIELDS -->
