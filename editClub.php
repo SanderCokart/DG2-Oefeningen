@@ -27,6 +27,7 @@
     $newClubName = $_POST['newClubName'];
     $conn->query("UPDATE clubs SET club_name='$newClubName' WHERE id=".$_SESSION['editClubId']);
     session_destroy();
+    $conn->close();
     header('Location: index.php');
   }
 ?>
