@@ -25,13 +25,23 @@ if(isset($_POST['removeClubSubmit'])) { // if the form is submitted, process it
   header('Location: ../index.php'); // redirect to main page
 }
 ?>
-
-<form action="" method="post">
-  <fieldset>
-    <legend>Remove club "<?php echo $removeClubName; ?>"</legend>
-    <input type="text" name="removeClubReason" placeholder="Reason for removal"></input>
-    <input type="text" name="removeClubSolution" placeholder="Solution for removal"></input>
-    <input type="submit" name="removeClubSubmit" value="Submit"></input>
-
-  </fieldset>
-</form>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="../styles/pages.css">
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div>
+            <form action="" method="post">
+                <fieldset>
+                    <legend>Remove club "<?php echo $removeClubName; ?>"</legend>
+                    <input type="text" name="removeClubReason" placeholder="Reason for removal"></input>
+                    <input type="text" name="removeClubSolution" placeholder="Solution for removal"></input>
+                    <input type="submit" name="removeClubSubmit" value="Submit"></input>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

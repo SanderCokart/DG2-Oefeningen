@@ -30,15 +30,18 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="../styles/pages.css">
 <title>Edit club</title>
 </head>
 <body>
-<form action="" method="post">
-  <fieldset>
-    <legend>Edit club with the name <?php if(isset($currentClubName)) { echo $currentClubName; } ?></legend>
-    <input type="text" name="newClubName" value="<?php if(isset($currentClubName)) {echo $currentClubName;} ?>"></input>
-    <input type="submit" name="editClubSubmit" value="Submit"></input>
-  </fieldset>
-</form>
+    <div>
+        <form action="" method="post">
+          <fieldset>
+            <legend>Edit club with the name <?php if(isset($currentClubName)) { echo $currentClubName; } ?></legend>
+            <input type="text" name="newClubName" value="<?php if(isset($currentClubName)) {echo $currentClubName;} ?>"></input>
+            <input type="submit" name="editClubSubmit" value="Submit"></input>
+          </fieldset>
+        </form>
+    </div>
 </body>
 </html>

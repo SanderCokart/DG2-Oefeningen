@@ -13,6 +13,7 @@ if (isset($_POST['clubName'])) { // process form, give query and redirect to ind
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="../styles/pages.css">
         <title>Insert a club</title>
     </head>
     <body>

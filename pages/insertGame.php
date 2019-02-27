@@ -17,11 +17,14 @@ if(isset($_POST['insertGameSubmit']) && isset($_POST['club1select'])
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles/pages.css">
     <title></title>
   </head>
   <body>
     <div>
         <form action="" method="post">
+            <fieldset>
+                <legend>Insert Game</legend>    
             <select name="club1select">
                 <?php
                     $result = $conn->query("SELECT club_name FROM clubs WHERE removed=0");
@@ -40,6 +43,7 @@ if(isset($_POST['insertGameSubmit']) && isset($_POST['club1select'])
                  ?>
             </select>
             <input type="submit" name="insertGameSubmit"></input>
+        </fieldset>
         </form>
     </div>
   </body>
