@@ -43,6 +43,9 @@
     <div id="T1">
         <h1>CLUBS</h1>
         <?php
+          // destroy sessions if the user left the page without submitting, this would give the user the ability to edit a removed club
+          session_start();
+          session_destroy();
             echo "<table width=\"100%\">";
             echo "<tr>
             <th>ID</th>
