@@ -9,10 +9,6 @@ if(!isset($_SESSION['removeClubId'])) {
   }
 }
 
-if (!$_SESSION['existingId']) { // if the id doesn't exist, stop
-  die ("You didn't enter an id or the id doesn't exist! Go back!");
-}
-
 if(isset($_POST['removeClubId'])) { // put the id in a session for use after refresh
   $_SESSION['removeClubId'] = $_POST['removeClubId'];
   $result = $conn->query("SELECT club_name FROM clubs WHERE id='$_SESSION[removeClubId]'");
