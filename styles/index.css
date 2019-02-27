@@ -44,6 +44,23 @@ button:hover{
     background-color: aquamarine;
 }
 
+/* SCROLL BAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* SCROLL BAR */
 
 
 #T1{
@@ -55,6 +72,7 @@ button:hover{
     background-image: url(https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/449530/1160/1160/m1/fpnw/wm1/creative-temp-.jpg?1429264912&s=1417459451ad7b76122f70c0092aafa5);
     background-blend-mode: multiply;
     color: white;
+    overflow-y: scroll;
 
 }
 
@@ -67,6 +85,7 @@ button:hover{
     background-image: url(https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/449530/1160/1160/m1/fpnw/wm1/creative-temp-.jpg?1429264912&s=1417459451ad7b76122f70c0092aafa5);
     background-blend-mode: multiply;
     color: white;
+    overflow-y: scroll;
 }
 
 table{
