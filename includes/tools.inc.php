@@ -17,7 +17,7 @@ function checkExistanceId($idToCheck, $table) {
 
 
 function wrongId() {
-  die ("The id doesn't exist or the id field has been left empty <br> <img src=https://accountingpl.us/assets/images/screenshots/treeguy.jpg width='500'>");
+  die ("The id doesn't exist or the id field has been left empty d <br> <img src=https://accountingpl.us/assets/images/screenshots/treeguy.jpg width='500'>");
 }
 
 
