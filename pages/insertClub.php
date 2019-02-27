@@ -14,7 +14,8 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Insert club</title>
+        <link rel="stylesheet" href="../styles/pages.css">
+        <title>Insert a club</title>
     </head>
     <body>
       <div id="insert">

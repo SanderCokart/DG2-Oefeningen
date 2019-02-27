@@ -34,6 +34,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles/pages.css">
     <title>Edit game</title>
   </head>
   <body>
@@ -43,10 +44,13 @@
           $result = $conn->query("SELECT * FROM games WHERE id='$_SESSION[indexEditGameId]'");
           $row = $result->fetch_assoc();
           ?>
-            <input type="text" name="editGameClub1Name" placeholder="<?php echo $row['club_1_name']; ?>"></input>
-            <input type="text" name="editGameScore" placeholder="<?php echo $row['score']; ?>"></input>
-            <input type="text" name="editGameClub2Name" placeholder="<?php echo $row['club_2_name']; ?>"></input>
-            <input type="submit" name="editGameSubmit"></input>
+            <fieldset>
+                <legend>Edit Game</legend>
+                <input type="text" name="editGameClub1Name" placeholder="<?php echo $row['club_1_name']; ?>"></input>
+                <input type="text" name="editGameScore" placeholder="<?php echo $row['score']; ?>"></input>
+                <input type="text" name="editGameClub2Name" placeholder="<?php echo $row['club_2_name']; ?>"></input>
+                <input type="submit" name="editGameSubmit"></input>
+            </fieldset>
         </form>
     </div>
   </body>
