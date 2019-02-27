@@ -24,7 +24,7 @@ if(isset($_POST['insertGameSubmit']) && isset($_POST['club1select'])
         <form action="" method="post">
             <select name="club1select">
                 <?php
-                    $result = $conn->query("SELECT club_name FROM clubs");
+                    $result = $conn->query("SELECT club_name FROM clubs WHERE removed=0");
                     while($row = $result->fetch_assoc()) {
                       echo "<option>".$row['club_name']."</option>";
                     }
@@ -33,7 +33,7 @@ if(isset($_POST['insertGameSubmit']) && isset($_POST['club1select'])
             <input type="text" name="score" placeholder="score club 1 - score club 2"></input>
             <select name="club2select">
                 <?php
-                    $result = $conn->query("SELECT club_name FROM clubs");
+                    $result = $conn->query("SELECT club_name FROM clubs WHERE removed=0");
                     while($row = $result->fetch_assoc()) {
                       echo "<option>".$row['club_name']."</option>";
                     }
