@@ -14,12 +14,12 @@
     <!-- edit form voor clubs -->
     <form id="formEdit" action="pages/editClub.php" method="post">
         <input type="submit" id="editT1" value="EDIT"></input>
-        <input type="number" name="editClubId" placeholder="ID" id="editIDT1">
+        <input type="number" name="indexEditClubId" placeholder="ID" id="editIDT1">
     </form>
     <!-- remove form voor clubs -->
     <form id="formRemove" action="pages/removeClub.php" method="post">
         <input type="submit" id="removeT1" value="REMOVE"></input>
-        <input type="number" name="removeClubId" placeholder="ID"  id="removeIDT1">
+        <input type="number" name="indexRemoveClubId" placeholder="ID"  id="removeIDT1">
     </form>
 
     <!-- insert form voor clubs -->
@@ -30,12 +30,12 @@
     <!-- edit form voor games -->
     <form action="pages/editGame.php" method="post">
         <input type="submit" id="editT2" value="EDIT"></input>
-        <input type="number" name="editGameId" placeholder="ID" id="editIDT2"></input>
+        <input type="number" name="indexEditGameId" placeholder="ID" id="editIDT2"></input>
     </form>
 
     <!-- insert form voor games -->
     <form action="pages/insertGame.php" method="post">
-        <input type="submit" name="insertGameId" id="insertT2" value="INSERT"></input>
+        <input type="submit" id="insertT2" value="INSERT"></input>
     </form>
     <!-- INPUT FIELDS -->
 

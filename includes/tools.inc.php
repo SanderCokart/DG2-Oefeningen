@@ -7,11 +7,9 @@ function checkExistanceId($idToCheck, $table) {
   } else if ($table == "games") {
     $sql = "SELECT id FROM games";
   }
-  $_SESSION['existingId'] = FALSE; // standard value is false
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) { // check if id exists in
     if ($_POST[$idToCheck] == $row['id']) { // the id exists in table
-      $_SESSION['existingId'] = TRUE;
       return true;
     }
   }

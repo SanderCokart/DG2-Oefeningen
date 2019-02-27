@@ -17,7 +17,7 @@ if(isset($_POST['insertGameSubmit']) && isset($_POST['club1select'])
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Insert game</title>
   </head>
   <body>
     <div>

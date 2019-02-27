@@ -4,24 +4,32 @@
   include '../includes/tools.inc.php';
 
   // check for existing and non-empty id
-  if (!isset($_SESSION['editClubId'])) {
-    if(!checkExistanceId('editClubId', 'clubs')) {
+  if (!isset($_SESSION['indexEditClubId'])) {
+    if(!checkExistanceId('indexEditClubId', 'clubs')) {
       wrongId();
     }
   }
   // get the inserted id from index.php
-  if(isset($_POST['editClubId'])) {
-    $_SESSION['editClubId'] = $_POST['editClubId']; // assign id to session for use after submit
-    $result = $conn->query("SELECT club_name FROM clubs WHERE id='$_POST[editClubId]'");
+  if(isset($_POST['indexEditClubId'])) {
+    $_SESSION['indexEditClubId'] = $_POST['indexEditClubId']; // assign id to session for use after submit
+    $result = $conn->query(
+     "SELECT club_name
+      FROM clubs
+      WHERE id='$_POST[indexEditClubId]'"
+    );
     $row = $result->fetch_assoc();
     $currentClubName = $row['club_name'];
-  }
-
-  // get the new name and give the query to the database
-  if(isset($_POST['editClubSubmit']) && isset($_POST['newClubName'])) { // check for submit and if it isn't empty
-    $conn->query("UPDATE clubs SET club_name='$_POST[newClubName]' WHERE id=".$_SESSION['editClubId']);
-    session_destroy();
     $conn->close();
+  }
+  // get the new name and give the query to the database
+  if(isset($_POST['editClubSubmit']) && isset($_POST['newClubName'])) { // check for submit and if it isn't empty do this
+    $conn->query(
+     "UPDATE clubs
+      SET club_name='$_POST[newClubName]'
+      WHERE id='$_SESSION[indexEditClubId]'"
+    );
+    $conn->close();
+    session_destroy();
     header('Location: ../index.php');
   }
 ?>
@@ -35,8 +43,8 @@
 <body>
 <form action="" method="post">
   <fieldset>
-    <legend>Edit club with the name <?php if(isset($currentClubName)) { echo $currentClubName; } ?></legend>
-    <input type="text" name="newClubName" value="<?php if(isset($currentClubName)) {echo $currentClubName;} ?>"></input>
+    <legend>Edit club with the name <?php echo $currentClubName; ?></legend>
+    <input type="text" name="newClubName" value="<?php echo $currentClubName; ?>"></input>
     <input type="submit" name="editClubSubmit" value="Submit"></input>
   </fieldset>
 </form>
