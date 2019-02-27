@@ -2,18 +2,6 @@
 // function for checking if the id exists
 function checkExistanceId($idToCheck, $table) {
   include 'db.inc.php';
-  // switch ($table) {
-  //   case 'clubs':
-  //     $sql = "SELECT id FROM clubs WHERE removed=0";
-  //     break;
-  //
-  //   case 'games':
-  //     $sql = "SELECT id FROM games";
-  //     break;
-  //
-  //   default:
-  //     return false;
-  //     break;
   if ($table == "clubs") {
     $sql = "SELECT id FROM clubs WHERE removed=0";
   } else if ($table == "games") {
