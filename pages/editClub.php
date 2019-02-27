@@ -3,22 +3,23 @@
   include '../includes/db.inc.php';
   include '../includes/tools.inc.php';
 
+  // check for existing and non-empty id
   if (!isset($_SESSION['editClubId'])) {
     if(!checkExistanceId('editClubId', 'clubs')) {
       wrongId();
     }
   }
-
-  if(isset($_POST['editClubId']) && !empty($_POST['editClubId'])) { // get the inserted id from index.php
-    $_SESSION['editClubId'] = $_POST['editClubId'];
+  // get the inserted id from index.php
+  if(isset($_POST['editClubId'])) {
+    $_SESSION['editClubId'] = $_POST['editClubId']; // assign id to session for use after submit
     $result = $conn->query("SELECT club_name FROM clubs WHERE id='$_POST[editClubId]'");
     $row = $result->fetch_assoc();
     $currentClubName = $row['club_name'];
   }
 
-  if(isset($_POST['editClubSubmit']) && isset($_POST['newClubName'])) { // get the new name and give the query to the database
-    $newClubName = $_POST['newClubName'];
-    $conn->query("UPDATE clubs SET club_name='$newClubName' WHERE id=".$_SESSION['editClubId']);
+  // get the new name and give the query to the database
+  if(isset($_POST['editClubSubmit']) && isset($_POST['newClubName'])) { // check for submit and if it isn't empty
+    $conn->query("UPDATE clubs SET club_name='$_POST[newClubName]' WHERE id=".$_SESSION['editClubId']);
     session_destroy();
     $conn->close();
     header('Location: ../index.php');
