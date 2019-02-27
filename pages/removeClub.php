@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'includes/db.inc.php';
-include 'includes/tools.inc.php';
+include '../includes/db.inc.php';
+include '../includes/tools.inc.php';
 
 if(!checkExistanceId('removeClubId', 'clubs')) { // check if id exists in the table
   wrongId();
@@ -24,7 +24,7 @@ if(isset($_POST['removeClubSubmit'])) { // if the form is submitted, process it
   $result = $conn->query("UPDATE clubs SET removed=1, reason='$removeClubReason', solution='$removeClubSolution' WHERE id='$_SESSION[removeClubId]'");
   session_destroy(); // stop session
   $conn->close(); // close connection
-  header('Location: index.php'); // redirect to main page
+  header('Location: ../index.php'); // redirect to main page
 }
 ?>
 

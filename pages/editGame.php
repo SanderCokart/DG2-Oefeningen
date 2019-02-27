@@ -1,7 +1,7 @@
 <?php
   session_start();
-  include 'includes/db.inc.php';
-  include 'includes/tools.inc.php';
+  include '../includes/db.inc.php';
+  include '../includes/tools.inc.php';
 
   if(!checkExistanceId('editGameId', 'games')) {
     wrongId();
@@ -26,7 +26,7 @@
     );
     $conn->close();
     session_destroy();
-    header('Location: index.php?submit=succes');
+    header('Location: ../index.php');
   }
 
 ?>

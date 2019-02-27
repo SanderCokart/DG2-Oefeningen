@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/index.css">
     <title>Tables</title>
 </head>
 
@@ -11,26 +11,26 @@
     <?php include_once "includes/db.inc.php" ?>
     <!-- INPUT FIELDS -->
 
-    <form id="formEdit" action="editClub.php" method="post">
+    <form id="formEdit" action="pages/editClub.php" method="post">
         <input type="submit" id="editT1" value="EDIT"></input>
         <input type="number" placeholder="ID" id="editIDT1" name="editClubId">
     </form>
 
-    <form id="formRemove" action="removeClub.php" method="post">
+    <form id="formRemove" action="pages/removeClub.php" method="post">
         <input type="submit" id="removeT1" value="REMOVE"></input>
         <input type="number" placeholder="ID"  id="removeIDT1" name="removeClubId">
     </form>
 
-    <form action="insertClub.php" method="post">
+    <form action="pages/insertClub.php" method="post">
         <input type="submit" id="insertT1" value="INSERT"></input>
     </form>
 
-    <form action="editGame.php" method="post">
+    <form action="pages/editGame.php" method="post">
         <input type="submit" id="editT2" value="EDIT"></input>
         <input type="number" name="editGameId" placeholder="ID" id="editIDT2"></input>
     </form>
 
-    <form action="insertGame.php" method="post">
+    <form action="pages/insertGame.php" method="post">
         <input type="submit" id="insertT2" value="INSERT" name="insertGameId"></input>
     </form>
     <!-- INPUT FIELDS -->

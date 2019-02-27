@@ -1,5 +1,5 @@
 <?php
-include 'includes/db.inc.php';
+include '../includes/db.inc.php';
 
 if(isset($_POST['insertGameSubmit']) && isset($_POST['club1select'])
 && isset($_POST['score']) && isset($_POST['club2select'])) { // process form on this page
@@ -9,7 +9,7 @@ if(isset($_POST['insertGameSubmit']) && isset($_POST['club1select'])
 
   $conn->query("INSERT INTO games (club_1_name, score, club_2_name) VALUES ('$club1select', '$gameScore', '$club2select')");
   $conn->close();
-  header('Location: index.php?submit=succes');
+  header('Location: ../index.php?submit=succes');
 }
 ?>
 

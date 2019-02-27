@@ -1,7 +1,7 @@
 <?php
   session_start();
-  include 'includes/db.inc.php';
-  include 'includes/tools.inc.php';
+  include '../includes/db.inc.php';
+  include '../includes/tools.inc.php';
 
   if(!checkExistanceId('editClubId', 'clubs')) {
     wrongId();
@@ -22,7 +22,7 @@
     $conn->query("UPDATE clubs SET club_name='$newClubName' WHERE id=".$_SESSION['editClubId']);
     session_destroy();
     $conn->close();
-    header('Location: index.php');
+    header('Location: ../index.php');
   }
 ?>
 
