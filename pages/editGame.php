@@ -3,8 +3,10 @@
   include '../includes/db.inc.php';
   include '../includes/tools.inc.php';
 
-  if(!checkExistanceId('editGameId', 'games')) {
-    wrongId();
+  if (!isset($_SESSION['editGameId'])) {
+    if(!checkExistanceId('editGameId', 'games')) {
+      wrongId();
+    }
   }
 
   if(isset($_POST['editGameId'])) { // get the id from previous page

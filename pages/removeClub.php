@@ -3,8 +3,10 @@ session_start();
 include '../includes/db.inc.php';
 include '../includes/tools.inc.php';
 
-if(!checkExistanceId('removeClubId', 'clubs')) { // check if id exists in the table
-  wrongId();
+if(!isset($_SESSION['removeClubId'])) {
+  if(!checkExistanceId('removeClubId', 'clubs')) { // check if id exists in the table
+    wrongId();
+  }
 }
 
 if (!$_SESSION['existingId']) { // if the id doesn't exist, stop
