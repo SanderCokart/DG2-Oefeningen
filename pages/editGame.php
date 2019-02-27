@@ -40,15 +40,55 @@
   <body>
     <div>
         <form action="" method="post">
-          <?php
-          $result = $conn->query("SELECT * FROM games WHERE id='$_SESSION[indexEditGameId]'");
-          $row = $result->fetch_assoc();
-          ?>
+
             <fieldset>
                 <legend>Edit Game</legend>
-                <input type="text" name="editGameClub1Name" placeholder="<?php echo $row['club_1_name']; ?>"></input>
-                <input type="text" name="editGameScore" placeholder="<?php echo $row['score']; ?>"></input>
-                <input type="text" name="editGameClub2Name" placeholder="<?php echo $row['club_2_name']; ?>"></input>
+
+                <?php
+                  $result = $conn->query("SELECT club_1_name, club_2_name
+                  FROM games WHERE id='$_SESSION[indexEditGameId]'");
+                  $row = $result->fetch_assoc();
+                  $currentClub1Name = $row['club_1_name'];
+                  $currentClub2Name = $row['club_2_name'];
+
+                  $result = $conn->query(
+                    "SELECT club_name FROM clubs WHERE removed=0;"
+                  );
+                  echo "<select name='editGameClub1Name'>";
+                  while($row = $result->fetch_assoc()) {
+                    if($row['club_name'] == $currentClub1Name) {
+                      echo "<option selected>" . $row['club_name'] . "</option>";
+                    } else {
+                      echo "<option>" . $row['club_name'] . "</option>";
+                    }
+                  }
+                  echo "</select>";
+                  ?>
+
+                  <?php
+                  $result = $conn->query(
+                    "SELECT score FROM games WHERE id='$_SESSION[indexEditGameId]';"
+                  );
+                  $row = $result->fetch_assoc();
+                  echo "<input type='text' name='editGameScore' placeholder=" . $row['score'] . "></input>";
+                  ?>
+
+                  <?php
+                  echo "<select name='editGameClub2Name'>";
+                  $result = $conn->query(
+                    "SELECT club_name FROM clubs WHERE removed=0;"
+                  );
+                  while($row = $result->fetch_assoc()) {
+
+                    if($row['club_name'] == $currentClub2Name) {
+                      echo "<option selected>" . $row['club_name'] . " </option>";
+                    } else {
+                      echo "<option>" . $row['club_name'] . "</option>";
+                    }
+                  }
+                  echo "</select>";
+                  $conn->close();
+                ?>
                 <input type="submit" name="editGameSubmit"></input>
             </fieldset>
         </form>
