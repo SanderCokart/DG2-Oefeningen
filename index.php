@@ -76,6 +76,7 @@
         echo "<table width=\"100%\">";
         echo "<tr>
         <th>ID</th>
+        <th>Played</th>
         <th>Club 1</th>
         <th>Score</th>
         <th>Club 2</th>
@@ -87,6 +88,9 @@
             echo "<tr>";
             echo "<td>";
             echo $row['id'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['played'] ? 'Not played' : 'Played';
             echo "</td>";
             echo "<td>";
             echo $row['club_1_name'];
