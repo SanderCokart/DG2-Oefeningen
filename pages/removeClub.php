@@ -16,12 +16,12 @@ if(isset($_POST['indexRemoveClubId'])) {
   $_SESSION['currentName'] = $row['club_name'];
 }
 // if the form is submitted, process it
-if(isset($_POST['removeClubSubmit'])) {
+if(isset($_POST['removeClubSubmit'], $_POST['removeClubReason'], $_POST['removeClubSolution'])) {
   $removeClubReason = $_POST['removeClubReason'];
   $removeClubSolution = $_POST['removeClubSolution'];
-  $result = $conn->query("UPDATE clubs SET removed=1, reason='$removeClubReason', solution='$removeClubSolution' WHERE id='$_SESSION[indexRemoveClubId]'");
+  $result = $conn->query("UPDATE clubs SET club_name='{$_SESSION[currentName]}REMOVED', removed=1, reason='$removeClubReason', solution='$removeClubSolution' WHERE id='$_SESSION[indexRemoveClubId]'");
   $conn->query("DELETE FROM games
-    WHERE club_1_name='$_SESSION[currentName]' OR club_2_name='$_SESSION[currentName]';");
+    WHERE club_1_name='$_SESSION[currentName]' AND played=1 OR club_2_name='$_SESSION[currentName]' AND played=1;");
   session_destroy(); // stop session
   $conn->close(); // close connection
   header('Location: ../organizerPage.php'); // redirect to main page
