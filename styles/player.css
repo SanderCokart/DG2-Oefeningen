@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Teko');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: teko, arial, helvetica, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+body{
+    display: grid;
+    background: rgb(100,100,100);
+    background-blend-mode: multiply;
+    background-image: url(https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/449530/1160/1160/m1/fpnw/wm1/creative-temp-.jpg?1429264912&s=1417459451ad7b76122f70c0092aafa5);
+    font-size: 3vw;
+}
+
+tr:first-child{
+    background-color: rgba(100,100,100, .9);
+}
+
+td{
+    border-bottom: solid white;
+}

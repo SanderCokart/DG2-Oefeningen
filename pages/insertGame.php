@@ -46,7 +46,7 @@ if(isset($_POST['insertGameSubmit'], $_POST['club1select'], $_POST['score'], $_P
                     }
                  ?>
             </select>
-            <input type="checkbox" name="played"></input>
+            <span>check this box if the game is not played yet</span><input type="checkbox" name="played"></input>
             <input type="submit" name="insertGameSubmit"></input>
         </fieldset>
         </form>
