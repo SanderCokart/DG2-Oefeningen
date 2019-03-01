@@ -13,6 +13,7 @@ function checkExistanceId($idToCheck, $table) {
       return true;
     }
   }
+  $conn->close();
 }
 
 

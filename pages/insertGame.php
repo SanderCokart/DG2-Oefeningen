@@ -1,19 +1,19 @@
 <?php
 include '../includes/db.inc.php';
 if(isset($_POST['insertGameSubmit'], $_POST['club1select'], $_POST['score'], $_POST['club2select'])
-&& !empty($_POST['score'])) { // process form on this page
+&& !isset($_POST['played']) && !empty($_POST['score'])) { // process form on this page
   $club1select = $_POST['club1select'];
   $gameScore = $_POST['score'];
   $club2select = $_POST['club2select'];
-  $conn->query("INSERT INTO games (club_1_name, score, club_2_name) VALUES ('$club1select', '$gameScore', '$club2select')");
+  $conn->query("INSERT INTO games (club_1_name, score, club_2_name) VALUES ('$club1select', '$gameScore', '$club2select');");
   $conn->close();
-  header('Location: ../index.php?submit=succes');
-} else if(isset($_POST['played'], $_POST['club1select'], $_POST['club2select']) && empty($_POST['score'])) {
+  header('Location: ../organisatorPage.php?submit=succes');
+} else if(isset($_POST['played'], $_POST['club1select'], $_POST['club2select'])) {
   $club1select = $_POST['club1select'];
   $club2select = $_POST['club2select'];
   $conn->query("INSERT INTO games (club_1_name, score, club_2_name, played) VALUES ('$club1select', 'N.A.', '$club2select', 1);");
   $conn->close();
-  header('Location: ../index.php?submit=succes');
+  header('Location: ../organisatorPage.php?submit=succes');
 }
 ?>
 

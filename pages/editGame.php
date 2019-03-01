@@ -26,7 +26,7 @@
     );
     $conn->close();
     session_destroy();
-    header('Location: ../index.php');
+    header('Location: ../organisatorPage.php');
   }
 ?>
 
