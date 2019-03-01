@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 28 feb 2019 om 18:56
--- Serverversie: 10.1.35-MariaDB
--- PHP-versie: 7.2.9
+-- Gegenereerd op: 01 mrt 2019 om 09:55
+-- Serverversie: 10.1.38-MariaDB
+-- PHP-versie: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `wedstrijd_oefening`
 --
+CREATE DATABASE IF NOT EXISTS `wedstrijd_oefening` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `wedstrijd_oefening`;
 
 -- --------------------------------------------------------
 
@@ -41,11 +43,12 @@ CREATE TABLE `clubs` (
 --
 
 INSERT INTO `clubs` (`id`, `club_name`, `removed`, `reason`, `solution`) VALUES
-(17, 'Feyenoord', 0, NULL, NULL),
-(18, 'Ajax', 0, NULL, NULL),
-(19, 'PSV', 0, NULL, NULL),
-(20, 'Heerenveen', 0, NULL, NULL),
-(21, 'Weiteveense boys', 0, NULL, NULL);
+(1, 'Feyenoord', 0, NULL, NULL),
+(2, 'Ajax', 0, NULL, NULL),
+(3, 'PSV', 0, NULL, NULL),
+(4, 'Heerenveen', 0, NULL, NULL),
+(5, 'Brabant', 0, NULL, NULL),
+(6, 'FC Utrecht', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -60,6 +63,14 @@ CREATE TABLE `games` (
   `score` varchar(5) NOT NULL,
   `club_2_name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `games`
+--
+
+INSERT INTO `games` (`id`, `played`, `club_1_name`, `score`, `club_2_name`) VALUES
+(1, 0, 'Feyenoord', '5-2', 'FC Utrecht'),
+(2, 1, 'Ajax', 'N.A.', 'Feyenoord');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -86,13 +97,13 @@ ALTER TABLE `games`
 -- AUTO_INCREMENT voor een tabel `clubs`
 --
 ALTER TABLE `clubs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT voor een tabel `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
