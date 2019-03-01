@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 27 feb 2019 om 11:12
+-- Gegenereerd op: 28 feb 2019 om 18:56
 -- Serverversie: 10.1.35-MariaDB
 -- PHP-versie: 7.2.9
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `wedstrijd_oefening`
 --
-CREATE DATABASE IF NOT EXISTS `wedstrijd_oefening` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `wedstrijd_oefening`;
 
 -- --------------------------------------------------------
 
@@ -38,6 +36,17 @@ CREATE TABLE `clubs` (
   `solution` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `clubs`
+--
+
+INSERT INTO `clubs` (`id`, `club_name`, `removed`, `reason`, `solution`) VALUES
+(17, 'Feyenoord', 0, NULL, NULL),
+(18, 'Ajax', 0, NULL, NULL),
+(19, 'PSV', 0, NULL, NULL),
+(20, 'Heerenveen', 0, NULL, NULL),
+(21, 'Weiteveense boys', 0, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +55,7 @@ CREATE TABLE `clubs` (
 
 CREATE TABLE `games` (
   `id` int(11) NOT NULL,
+  `played` tinyint(1) NOT NULL,
   `club_1_name` varchar(25) NOT NULL,
   `score` varchar(5) NOT NULL,
   `club_2_name` varchar(25) NOT NULL
@@ -76,13 +86,13 @@ ALTER TABLE `games`
 -- AUTO_INCREMENT voor een tabel `clubs`
 --
 ALTER TABLE `clubs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT voor een tabel `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
