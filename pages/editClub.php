@@ -9,7 +9,7 @@
       wrongId();
     }
   }
-  // get the inserted id from index.php
+  // get the inserted id from organisatorPage.php
   if(isset($_POST['indexEditClubId'])) {
     $_SESSION['indexEditClubId'] = $_POST['indexEditClubId']; // assign id to session for use after submit
     $result = $conn->query(
@@ -18,19 +18,27 @@
       WHERE id='$_POST[indexEditClubId]'"
     );
     $row = $result->fetch_assoc();
-    $currentClubName = $row['club_name'];
+    $_SESSION['currentClubName'] = $row['club_name'];
     $conn->close();
   }
   // get the new name and give the query to the database
-  if(isset($_POST['editClubSubmit']) && isset($_POST['newClubName'])) { // check for submit and if it isn't empty do this
+  if(isset($_POST['editClubSubmit'], $_POST['newClubName'])) { // check for submit and if it isn't empty do this
     $conn->query(
      "UPDATE clubs
       SET club_name='$_POST[newClubName]'
-      WHERE id='$_SESSION[indexEditClubId]'"
+      WHERE id='$_SESSION[indexEditClubId]';"
     );
+    $conn->query(
+      "UPDATE games
+      SET club_1_name='$_POST[newClubName]'
+      WHERE club_1_name='$_SESSION[currentClubName]';");
+    $conn->query(
+      "UPDATE games
+      SET club_2_name='$_POST[newClubName]'
+      WHERE club_2_name='$_SESSION[currentClubName]';");
     $conn->close();
     session_destroy();
-    header('Location: ../index.php');
+    header('Location: ../organisatorPage.php');
   }
 ?>
 
@@ -45,8 +53,8 @@
     <div>
         <form action="" method="post">
           <fieldset>
-            <legend>Edit club with the name <?php if(isset($currentClubName)) { echo $currentClubName; } ?></legend>
-            <input type="text" name="newClubName" value="<?php if(isset($currentClubName)) {echo $currentClubName;} ?>"></input>
+            <legend>Edit club with the name <?php if(isset($_SESSION['currentClubName'])) { echo $_SESSION['currentClubName']; } ?></legend>
+            <input type="text" name="newClubName" value="<?php if(isset($_SESSION['currentClubName'])) {echo $_SESSION['currentClubName'];} ?>"></input>
             <input type="submit" name="editClubSubmit" value="Submit"></input>
           </fieldset>
         </form>
