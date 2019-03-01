@@ -22,7 +22,7 @@ if(isset($_POST['removeClubSubmit'])) { // if the form is submitted, process it
   $result = $conn->query("UPDATE clubs SET removed=1, reason='$removeClubReason', solution='$removeClubSolution' WHERE id='$_SESSION[indexRemoveClubId]'");
   session_destroy(); // stop session
   $conn->close(); // close connection
-  header('Location: ../index.php'); // redirect to main page
+  header('Location: ../organizerPage.php'); // redirect to main page
 }
 ?>
 <!DOCTYPE html>

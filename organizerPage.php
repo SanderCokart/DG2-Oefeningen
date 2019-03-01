@@ -82,7 +82,7 @@
         <th>Club 2</th>
         </tr>";
 
-        $result = $conn->query("SELECT * FROM games ORDER BY id;");
+        $result = $conn->query("SELECT * FROM games ORDER BY played DESC;");
 
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";

@@ -9,7 +9,7 @@
       wrongId();
     }
   }
-  // get the inserted id from organisatorPage.php
+  // get the inserted id from organizerPage.php
   if(isset($_POST['indexEditClubId'])) {
     $_SESSION['indexEditClubId'] = $_POST['indexEditClubId']; // assign id to session for use after submit
     $result = $conn->query(
@@ -38,7 +38,7 @@
       WHERE club_2_name='$_SESSION[currentClubName]';");
     $conn->close();
     session_destroy();
-    header('Location: ../organisatorPage.php');
+    header('Location: ../organizerPage.php');
   }
 ?>
 
