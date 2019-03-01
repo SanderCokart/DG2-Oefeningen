@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: teko, sans-serif, helvetica, arial;
+    font-weight: 600;
+}
+
+body{
+    background: darkkhaki;
+}
+
+main{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+div.button-container{
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+div.button{
+    height: 100%;
+    width: 100%;
+}
+
+button{
+    height: 100%;
+    width: 100%;
+    font-size: 3em;
+    text-transform: uppercase;
+    background: cornsilk;
+    height: 100%;
+    color: darkslategray;
+}
+
+button:hover{
+    font-size: 4em;
+    text-transform: uppercase;
+    background: chartreuse;
+}
